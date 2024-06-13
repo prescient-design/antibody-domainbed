@@ -1,0 +1,331 @@
+{
+    "@type": "sc:Dataset",
+    "name": "Antibody Domainbed",
+    "citeAs": "Tagasovska, N., Park, J. W., Kirchmeyer, M., Frey, N., Watkins, A., Abdelsalam Ismail, A., Jamasb, A. R., Lee, E., Bryson, T., Ra, S., & Cho, K. (2024). Antibody Domainbed (1.0.0) [Data set]. Zenodo. https://doi.org/10.5281/zenodo.11401578",
+    "description": "A given molecule has good therapeutic properties if it can tightly bind to an Antigen (target) of interest. Since wet-lab binding measurements are expensive (both in terms of money and time), domain experts rely on computational properties such as binding energy energy which has been shown to be indicative of binding. We use published, ML SOTA models for generating a library of in-vitro functional synthetic antibodies. We condition the generation with an initial wild type, i.e. seeds, which have been selected from an existing database of experimentally obtained antibody-antigen complexes. Then, each record in our dataset corresponds to the difference in energy as computed by Rosetta scoring function ref2015, between the original Ab-Ag complex and the AbMutated-Ag complex. The difference in energy can be interpreted as 'decrease in energy' signaling better/stronger binding of the two molecules. For each new design in our database we record the source (generative model), antigen, heavy and light chain with both sequence and structure representation. We split the datapoints into 5 environments emulating active drug design cycles. The environment labels are intended to help DG algorithms and they can also be modified by users of the datasets to mimic a setup corresponding to their needs.",
+    "license": "Creative Commons Attribution 4.0",
+    "url": "https://zenodo.org/records/11446107",
+    "version": "1.0.0",
+    "distribution": [
+      {
+        "@type": "cr:FileObject",
+        "@id": "abdb.csv",
+        "name": "abdb.csv",
+        "contentUrl": "https://zenodo.org/records/11446107",
+        "contentSize": "13.1MB",
+        "encodingFormat": "text/csv",
+        "md5": "73d00d52588a4f8114e913126aae41af"
+      }
+    ],
+    "recordSet": [
+      {
+        "@type": "cr:RecordSet",
+        "@id": "abdb",
+        "name": "abdb",
+        "dataType": "sc:Enumeration",
+        "description": "Describes all fields in the csv file.",
+        "key": "key",
+        "field": [
+          {
+            "@type": "cr:Field",
+            "@id": "abdb/target",
+            "name": "target",
+            "description": "Antigen target, one of {\"HIV1\", \"SARS_CoV_2\"}, \"HER2\"}",
+            "dataType": [
+              "sc:Text",
+              "sc:name"
+            ],
+            "source": {
+              "fileObject": {
+                "@id": "abdb.csv"
+              },
+              "extract": {
+                "column": "target"
+              }
+            }
+          },
+          {
+            "@type": "cr:Field",
+            "@id": "abdb/fv_heavy",
+            "name": "fv_heavy",
+            "description": "Heavy chain of antibody.",
+            "dataType": [
+              "sc:Text",
+              "sc:name"
+            ],
+            "source": {
+              "fileObject": {
+                "@id": "abdb.csv"
+              },
+              "extract": {
+                "column": "fv_heavy"
+              }
+            }
+          },
+          {
+            "@type": "cr:Field",
+            "@id": "abdb/fv_light",
+            "name": "fv_light",
+            "description": "Light chain of antibody.",
+            "dataType": [
+              "sc:Text",
+              "sc:name"
+            ],
+            "source": {
+              "fileObject": {
+                "@id": "abdb.csv"
+              },
+              "extract": {
+                "column": "fv_light"
+              }
+            }
+          },
+          {
+            "@type": "cr:Field",
+            "@id": "abdb/fv_heavy_aho",
+            "name": "fv_heavy_aho",
+            "description": "Heavy chain of antibody in aho numbering format.",
+            "dataType": [
+              "sc:Text",
+              "sc:name"
+            ],
+            "source": {
+              "fileObject": {
+                "@id": "abdb.csv"
+              },
+              "extract": {
+                "column": "fv_heavy_aho"
+              }
+            }
+          },
+          {
+            "@type": "cr:Field",
+            "@id": "abdb/fv_light_aho",
+            "name": "fv_light_aho",
+            "description": "Light chain of antibody in aho numbering format.",
+            "dataType": [
+              "sc:Text",
+              "sc:name"
+            ],
+            "source": {
+              "fileObject": {
+                "@id": "abdb.csv"
+              },
+              "extract": {
+                "column": "fv_light_aho"
+              }
+            }
+          },
+          {
+            "@type": "cr:Field",
+            "@id": "abdb/fv_light_aho_seed",
+            "name": "fv_light_aho_seed",
+            "description": "Light chain of seed antibody in aho numbering format.",
+            "dataType": [
+              "sc:Text",
+              "sc:name"
+            ],
+            "source": {
+              "fileObject": {
+                "@id": "abdb.csv"
+              },
+              "extract": {
+                "column": "fv_light_aho_seed"
+              }
+            }
+          },
+          {
+            "@type": "cr:Field",
+            "@id": "abdb/fv_heavy_aho_seed",
+            "name": "fv_heavy_aho_seed",
+            "description": "Heavy chain of seed antibody in aho numbering format.",
+            "dataType": [
+              "sc:Text",
+              "sc:name"
+            ],
+            "source": {
+              "fileObject": {
+                "@id": "abdb.csv"
+              },
+              "extract": {
+                "column": "fv_heavy_aho_seed"
+              }
+            }
+          },
+          {
+            "@type": "cr:Field",
+            "@id": "abdb/ag",
+            "name": "ag",
+            "description": "Antigen sequence for the complex.",
+            "dataType": [
+              "sc:Text",
+              "sc:name"
+            ],
+            "source": {
+              "fileObject": {
+                "@id": "abdb.csv"
+              },
+              "extract": {
+                "column": "ag"
+              }
+            }
+          },
+          {
+            "@type": "cr:Field",
+            "@id": "abdb/is_more_stable",
+            "name": "is_more_stable",
+            "description": "Binary variable indicating if the complex is more stable after the mutation introduced in the candidate antibody.",
+            "dataType": [
+              "sc:Text",
+              "sc:name"
+            ],
+            "source": {
+              "fileObject": {
+                "@id": "abdb.csv"
+              },
+              "extract": {
+                "column": "is_more_stable"
+              }
+            }
+          },
+          {
+            "@type": "cr:Field",
+            "@id": "abdb/env",
+            "name": "env",
+            "description": "Integer variable indicating the environment/active drug design cycle the protein belongs to.",
+            "dataType": [
+              "sc:Text",
+              "sc:name"
+            ],
+            "source": {
+              "fileObject": {
+                "@id": "abdb.csv"
+              },
+              "extract": {
+                "column": "env"
+              }
+            }
+          },
+          {
+            "@type": "cr:Field",
+            "@id": "abdb/ddG",
+            "name": "ddG",
+            "description": "Float number indicating the difference in binding energe between the complex with the seed, and the complex with the mutation suggested in the candidate protein.",
+            "dataType": [
+              "sc:Text",
+              "sc:name"
+            ],
+            "source": {
+              "fileObject": {
+                "@id": "abdb.csv"
+              },
+              "extract": {
+                "column": "ddG"
+              }
+            }
+          },
+          {
+            "@type": "cr:Field",
+            "@id": "abdb/edist",
+            "name": "edist",
+            "description": "Edit distance between the seed and candidate design.",
+            "dataType": [
+              "sc:Text",
+              "sc:name"
+            ],
+            "source": {
+              "fileObject": {
+                "@id": "abdb.csv"
+              },
+              "extract": {
+                "column": "edist"
+              }
+            }
+          },
+          {
+            "@type": "cr:Field",
+            "@id": "abdb/pdb",
+            "name": "pdb",
+            "description": "pdb id of the initial complex that was used as seed structure.",
+            "dataType": [
+              "sc:Text",
+              "sc:name"
+            ],
+            "source": {
+              "fileObject": {
+                "@id": "abdb.csv"
+              },
+              "extract": {
+                "column": "pdb"
+              }
+            }
+          },
+          {
+            "@type": "cr:Field",
+            "@id": "abdb/seq_id",
+            "name": "seq_id",
+            "description": "unique identifier for the candidate design.",
+            "dataType": [
+              "sc:Text",
+              "sc:name"
+            ],
+            "source": {
+              "fileObject": {
+                "@id": "abdb.csv"
+              },
+              "extract": {
+                "column": "seq_id"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "@context": {
+      "@language": "en",
+      "@vocab": "https://schema.org/",
+      "citeAs": "cr:citeAs",
+      "column": "cr:column",
+      "conformsTo": "dct:conformsTo",
+      "cr": "http://mlcommons.org/croissant/",
+      "rai": "http://mlcommons.org/croissant/RAI/",
+      "data": {
+        "@id": "cr:data",
+        "@type": "@json"
+      },
+      "dataType": {
+        "@id": "cr:dataType",
+        "@type": "@vocab"
+      },
+      "dct": "http://purl.org/dc/terms/",
+      "examples": {
+        "@id": "cr:examples",
+        "@type": "@json"
+      },
+      "extract": "cr:extract",
+      "field": "cr:field",
+      "fileProperty": "cr:fileProperty",
+      "fileObject": "cr:fileObject",
+      "fileSet": "cr:fileSet",
+      "format": "cr:format",
+      "includes": "cr:includes",
+      "isLiveDataset": "cr:isLiveDataset",
+      "jsonPath": "cr:jsonPath",
+      "key": "cr:key",
+      "md5": "cr:md5",
+      "parentField": "cr:parentField",
+      "path": "cr:path",
+      "recordSet": "cr:recordSet",
+      "references": "cr:references",
+      "regex": "cr:regex",
+      "repeated": "cr:repeated",
+      "replace": "cr:replace",
+      "sc": "https://schema.org/",
+      "separator": "cr:separator",
+      "source": "cr:source",
+      "subField": "cr:subField",
+      "transform": "cr:transform",
+      "wd": "https://www.wikidata.org/wiki/"
+    },
+    "conformsTo": "http://mlcommons.org/croissant/1.0"
+  }

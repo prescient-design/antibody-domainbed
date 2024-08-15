@@ -12,6 +12,7 @@ Our dataset can be found here:
 Before running any tests, please make sure you change the path in domainbed/datasets.py to whereever you store the data
 
 ## Quickstart
+Set up an environment with all necessary packages `conda create --name <env_name> --file requirements.txt`
 Train any DG baseline from Domainbed on the Antibody datset as follows:
 `python -m domainbed.scripts.train --dataset AbRosetta --algorithm ERM --output_dir='./some_directory'`
 

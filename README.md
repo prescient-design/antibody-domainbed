@@ -1,7 +1,5 @@
 # Welcome to Antibody DomainBed
 
-(submission #1590 at NeurIPS 2024 Datasets and Benchmarks Track)
-
 DomainBed is a PyTorch suite containing benchmark datasets and algorithms for domain generalization, as introduced in [In Search of Lost Domain Generalization](https://arxiv.org/abs/2007.01434).
 
 We extend this repo to allow for benchmarking DG algorithms for biological sequences, namely, therapeutic antibodies.
